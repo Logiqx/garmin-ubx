@@ -6,13 +6,13 @@ This project describes the integration of Garmin watches with u-blox GNSS receiv
 
 It initially sounds slightly crazy, but there are numerous benefits for the speed sailing community.
 
-This page provides some background, describes the opportunity, and some of the benefits.
+This page provides some background, describes the opportunities, and some of the benefits.
 
 
 
 ### Background
 
-It is worth mentioning that after buying an expensive sports watch, serious runners and cyclists will also buy a heart rate monitor. The [HRM 600](https://www.garmin.com/en-GB/p/1473393/) is Garmin's premium heart rate chest strap, retailing at around 150 GBP / 170 USD. Nevertheless, numerous athletes will often pay for such a device, because it produces far more accurate readings than the HR sensor in their watch.
+It is worth mentioning that after buying an expensive sports watch, serious runners and cyclists will often buy a heart rate monitor. The [HRM 600](https://www.garmin.com/en-GB/p/1473393/) is Garmin's premium heart rate chest strap, retailing at around 150 GBP / 170 USD. Nevertheless, numerous athletes will often pay for such a device, because it produces far more accurate readings than the HR sensor in their watch.
 
 ![garmin-hrm-600](img/garmin-hrm-600.jpg)
 
@@ -20,11 +20,11 @@ Serious speed sailors will typically use a dedicated GPS logger such as the [Mot
 
 ![garmin-motion](img/garmin-motion.jpg)
 
-After each session, speed sailors have to manually download the data from their Motion, prior to uploading to website such as [GPS-Speedsurfing.com](https://www.gps-speedsurfing.com/) and [speedsurf.app](https://speedsurf.app/). This is somewhat tedious when the Garmin watch can automatically upload to those same sites, plus other sites such as [Waterspeed](waterspeed.app) and [Strava](https://www.strava.com/). If only there were some way to pair the Motion with the Garmin, that could benefit from automatic uploads as well.
+After each session, speed sailors have to manually download the data from their Motion, prior to uploading to website such as [GPS-Speedsurfing.com](https://www.gps-speedsurfing.com/) and [speedsurf.app](https://speedsurf.app/). This is somewhat tedious when the Garmin watch can automatically upload to those same sites, plus other sites such as [Waterspeed](https://www.waterspeedapp.com/) and [Strava](https://www.strava.com/). There is no way to pair the Motion with Garmin watches and benefiting from automatic uploads to these platforms.
 
 
 
-### Opportunity
+### Opportunities
 
 Since the Motion is no longer being developed it is not possible to pair it up with a Garmin watch, but Scott Simms (developer of [APPro Windsurf](https://apps.garmin.com/en-US/apps/9567700b-6587-44be-9708-879bfc844791)) has been experimenting with [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) (BLE) connections between APPro Windsurf and a [LilyGo T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) (H713). The LilyGo is based on the ESP32-S3R8 Dual-core LX7 microprocessor, and the two devices can happily communicate via BLE.
 
@@ -56,9 +56,9 @@ ESP32
 
 Analysis
 
-- FIT file containing 5 Hz u-blox data, additional to the lat + lon + sog + cog from the built in GNSS.
-- FIT file including 5 Hz u-blox accuracy estimates (e.g. sAcc and hAcc), plus satellite counts and HDOP.
-- FIT file containing all of the usual session details, plus fitness data such as HR, etc.
+- FIT files containing 5 Hz u-blox data, additional to the lat + lon + sog + cog from the built in GNSS.
+- FIT files including 5 Hz u-blox accuracy estimates (e.g. sAcc and hAcc), plus satellite counts and HDOP.
+- FIT files containing all of the usual session details, plus fitness data such as HR, etc.
 
 
 

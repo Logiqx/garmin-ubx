@@ -12,6 +12,8 @@ The protocol has yet to be defined, but it is envisaged that the ESP32 will send
   - UBX payload definition - bit mask
   - UBX payload - byte array
 
-The [protocol](protocol.md) page describes the items that can be included in the UBX payload.
+The live data should use 1 second averages for SOG and COG, described in a [decimation](https://logiqx.github.io/gps-wizard/ideas/decimation/) article.
 
-Note that some of the UBX data types have been reduced in size, specifically for the speed sailing use cases.
+The [protocol](protocol.md) page describes the recommended items for the UBX payload.
+
+Note: Various UBX data types have been reduced in size, but still remain suitable for speed sailing.
