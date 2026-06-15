@@ -26,7 +26,7 @@ After each session, data must be downloaded from the Motion via Wi-Fi, prior to 
 
 ### Opportunities
 
-Since the Motion is no longer being developed it is not possible to pair it with a Garmin watch, but Scott Simms (developer of [APPro Windsurf](https://apps.garmin.com/en-US/apps/9567700b-6587-44be-9708-879bfc844791)) has been experimenting with [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) (BLE) connections between APPro and a [LilyGo T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) (H713). The LilyGo is based on the ESP32-S3R8 Dual-core LX7 microprocessor, and the two devices can happily communicate via BLE.
+Since the Motion is no longer being developed it is not possible to pair it with a Garmin watch, but Scott Simms (developer of [APPro Windsurf](https://apps.garmin.com/en-US/apps/9567700b-6587-44be-9708-879bfc844791)) has been experimenting with [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) (BLE) connections between APPro and a [LILYGO T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) (H713). The LilyGo is based on the ESP32-S3R8 Dual-core LX7 microprocessor, and the two devices can happily communicate via BLE.
 
 ![garmin-esp](img/garmin-esp.jpg)
 
@@ -89,13 +89,20 @@ The following pages discuss the technical details.
 
 ### Suitable Devices
 
-There are a number of ESP32 devices that would benefit from these capabilities.
+There are a number of ESP32 devices that would benefit from pairing with Garmin watches.
 
 - [ESP-GPS Logger](https://github.com/RP6conrad/ESP-GPS-Logger)
+  - [LILYGO T5 V2.3.1](https://lilygo.cc/products/t5-v2-3-1?variant=42366871699637) - BN213 or B74 e-paper
+    - [ESP32](https://www.espressif.com/en/products/socs/esp32) with integrated 2.4 GHz, 802.11 b/g/n Wi-Fi and Bluetooth 5 (LE) connectivity
 - [LISA GPS](http://lisawindsurfing.shop/products/lisa-watersports-gps)
-- ... other ESP32 projects currently in progress; with and without screens
+  - Perhaps the [LILYGO T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) or something similar?
+    - [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3) with integrated 2.4 GHz, 802.11 b/g/n Wi-Fi and Bluetooth 5 (LE) connectivity
+- ... other ESP32 projects currently in progress; some with and some without displays
+  - ESP32 and ESP32-S3 microcontrollers have 802.11 b/g/n Wi-Fi and Bluetooth 5 (LE) connectivity
+  - ESP32-S2 microcontrollers do <u>not</u> have integrated Bluetooth 5 (LE) connectivity
 
-Some benefits for users of ESP32 devices, even if the device has a screen:
+
+Some benefits for users of ESP32 devices with integrated BLE, even when they have a display:
 
 - Live results can also be displayed by APPro, providing additional real-time feedback.
 - 5 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.

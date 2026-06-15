@@ -28,16 +28,27 @@ A quick summary, lacking the full detail that can be found in the Google Sheet:
 
 | Name                             | Type | Bytes | Units |     Resolution      |
 | -------------------------------- | :--: | :---: | :---: | :-----------------: |
-| UTC Time                         | uint |   4   |   s   | 1 x 10<sup>-3</sup> |
+| UTC Time \*                      | uint |   4   |   s   | 1 x 10<sup>-3</sup> |
 | Latitude                         | int  |   4   |  deg  | 1 x 10<sup>-7</sup> |
 | Longitude                        | int  |   4   |  deg  | 1 x 10<sup>-7</sup> |
-| Speed (SOG)                      | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
-| Course (COG)                     | uint |   2   |  deg  | 1 x 10<sup>-2</sup> |
+| Speed (SOG) \*                   | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
+| Course (COG) \*                  | uint |   2   |  deg  | 1 x 10<sup>-2</sup> |
 | Fix Type                         | uint |   1   |   -   |          -          |
 | Satellites in Use                | uint |   1   |   -   |          -          |
 | Horizontal Dilution of Precision | uint |   2   |   -   | 1 x 10<sup>-2</sup> |
-| Horizontal Accuracy              | uint |   2   |   m   | 1 x 10<sup>-3</sup> |
-| Speed Accuracy                   | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
+| Horizontal Accuracy \*           | uint |   2   |   m   | 1 x 10<sup>-3</sup> |
+| Speed Accuracy \*                | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
+
+These items are a superset of those in the [GPY](https://github.com/prichterich/compactgnss/blob/main/java/MinimalDataRecord.java) format, just adding horizontal accuracy.
+
+Some of the items have been reduced in size (highlighted by asterisks), but are fine for speed sailing and other wind sports.
+
+- UTC time - able to count in milliseconds for 50 days. Standard FIT timestamps provide the actual dates
+- Speed and speed accuracy - reduced to 2 bytes for a ~65 m/s limit (around 130 kt), which is plenty for wind sports
+- Course - reduced to 2 bytes for two decimal places, which should be sufficient for most purposes
+- Horizontal accuracy - reduced to 2 bytes for a ~65 m limit, which is much higher than acceptable thresholds
+
+The use values such as 65,635 can be regarded as [sentinel values](https://en.wikipedia.org/wiki/Sentinel_value) when limits are exceeded, similar to SDOS from Locosys.
 
 
 
@@ -75,6 +86,6 @@ Note: This may require some kind of negotiation though, such as the ESP32 or APP
 
 Some of the data types have been reduced in size, specifically for the speed sailing use case.
 
-In the unlikely event of the types being insufficient, additional fields with the desired type can be defined in the protocol.
+In the unlikely event of the types being insufficient, additional fields with the desired types can be incorporated into the protocol.
 
 IMPORTANT: Additional items must be incorporated into the open protocol, not implemented independently.
