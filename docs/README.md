@@ -56,7 +56,7 @@ ESP32
 
 Analysis
 
-- FIT files containing 5 Hz u-blox data, plus the usual lat + lon + sog + cog from the built in GNSS.
+- FIT files containing 5 Hz u-blox data, plus the usual data from the GNSS receiver in the watch.
 - FIT files including 5 Hz u-blox accuracy estimates (e.g. sAcc and hAcc), plus satellite counts and HDOP.
 - FIT files containing all of the usual session details, plus fitness data such as HR, etc.
 
@@ -66,8 +66,8 @@ Analysis
 
 Some provisional investigations have already been undertaken.
 
-- We have demonstrated that BLE communication is possible between APPro and an ESP32 device.
-- We have confirmed the required u-blox data can be stored in Garmin FIT files; 5 Hz = 120 bytes / sec.
+- Scott has demonstrated that BLE communication is possible between APPro and an ESP32 device.
+- Scott has confirmed the required u-blox data can be stored in Garmin FIT files; 5 Hz = 120 bytes / sec.
 
 Some further investigations are required.
 
@@ -82,7 +82,7 @@ The following pages discuss the technical details.
 
 - [Protocol](protocol.md) - UBX payload, extensibility, etc.
 - [ESP32](esp32.md) - sending UBX payloads to the Garmin
-- [APPro](appro.md) - receiving UBX payloads and saving it in the FIT
+- [APPro](appro.md) - receiving and saving UBX payloads
 - [Analysis](analysis.md) - FIT file parsing
 
 
@@ -106,11 +106,11 @@ There are a number of ESP32 devices that would benefit from BLE pairing with Gar
 
 Some benefits for users of ESP32 devices with integrated BLE, even when they have a display:
 
-- Live results can also be displayed by APPro, providing additional real-time feedback.
+- Live results can also be displayed by APPro, providing additional functionality and feedback.
 - 5 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
 - 5 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
 
-Automatic uploads to multiple platforms (courtesy of Garmin) is likely to make life much simpler for users.
+Automatic uploads to multiple platforms (courtesy of Garmin) is expected to make life simpler for most users.
 
 Garmin watches supporting CIQ 3.1 upwards should be suitable, even $30 watches from eBay or Marketplace!
 
