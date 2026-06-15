@@ -10,7 +10,8 @@ The BLE profile has yet to be defined, but it is envisaged that the ESP32 will s
   - sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
   - Number of satellites in use
 - UBX data for logging to the FIT
-  - UBX payload definition - simple bit mask
+  - UBX definition - simple bit mask, representing the fields that are included in the payload
+  - UBX records - typically 5 records, but could be fewer
   - UBX payload - 120 byte array for one seconds worth of 5 Hz data
 
 The [ESP32](esp32.md) and [APPro](appro.md) each have their own unique roles to play in the handling of the data.

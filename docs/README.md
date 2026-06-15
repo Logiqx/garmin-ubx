@@ -26,7 +26,7 @@ After each session, data must be downloaded from the Motion via Wi-Fi, prior to 
 
 ### Opportunities
 
-Since the Motion is no longer being developed it is not possible to pair it with a Garmin watch, but Scott Simms (developer of [APPro Windsurf](https://apps.garmin.com/en-US/apps/9567700b-6587-44be-9708-879bfc844791)) has been experimenting with [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) (BLE) connections between APPro Windsurf and a [LilyGo T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) (H713). The LilyGo is based on the ESP32-S3R8 Dual-core LX7 microprocessor, and the two devices can happily communicate via BLE.
+Since the Motion is no longer being developed it is not possible to pair it with a Garmin watch, but Scott Simms (developer of [APPro Windsurf](https://apps.garmin.com/en-US/apps/9567700b-6587-44be-9708-879bfc844791)) has been experimenting with [Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) (BLE) connections between APPro and a [LilyGo T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) (H713). The LilyGo is based on the ESP32-S3R8 Dual-core LX7 microprocessor, and the two devices can happily communicate via BLE.
 
 ![garmin-esp](img/garmin-esp.jpg)
 
@@ -71,7 +71,7 @@ Some provisional investigations have already been undertaken.
 
 Some further investigations are required.
 
-- Stability of Garmin timings so that u-blox data can be logged reliably. This is addressed by double-buffering.
+- Stability of Garmin timings so that u-blox data can be logged reliably. The current intention is to implement double-buffering.
 - Reliability of BLE connection and reconnections throughout the whole session, during wipeouts, etc.
 
 

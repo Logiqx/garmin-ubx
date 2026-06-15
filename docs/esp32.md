@@ -10,8 +10,11 @@ The BLE profile has yet to be defined, but it is envisaged that the ESP32 will s
   - sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
   - Number of satellites in use
 - UBX data for logging to the FIT
-  - UBX payload definition - simple bit mask
+  - UBX definition - simple bit mask, representing the fields that are included in the payload
+  - UBX records - typically 5 records, but could be fewer
   - UBX payload - 120 byte array for one seconds worth of 5 Hz data
+
+See the [protocol](protocol.md) page and [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing) for more details about the UBX payloads.
 
 It might also be desirable to send things such as HR data from the Garmin to the ESP32.
 
@@ -27,3 +30,15 @@ The [protocol](protocol.md) page describes the recommended items for the UBX pay
 
 Various UBX data types have been reduced in size, but still remain suitable for speed sailing.
 
+
+
+#### 10 Hz / 20 Hz
+
+10 Hz data would require a 240 byte payload, which is too large for the FIT record which has a limit of 256 bytes.
+
+Two possible solutions would allow for higher rates to be logged:
+
+1. Drop some of the legacy fields which have limited use - e.g. HDOP
+2. Employ decimation to 5 Hz data - e.g. average every 2 items of 10 Hz data to produce 5 Hz data
+
+This isn't really a big issue though because the benefits of 10 Hz tend to be minimal.
