@@ -2,25 +2,28 @@
 
 ### Protocol
 
-The protocol has yet to be defined, but it is envisaged that the ESP32 will send data to APPro (or similar) once per second.
+The BLE profile has yet to be defined, but it is envisaged that the ESP32 will send data to APPro (or similar) once per second.
 
 - Live data for use by APPro
-  - Latitude + Longitude
-  - Speed (SOG) + Course (COG) - 1 second averages
-  - sAcc + hAcc - TBC
+  - Latitude + Longitude - 1 second average
+  - Speed (SOG) + Course (COG) - 1 second average
+  - sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
+  - Number of satellites in use
 - UBX data for logging to the FIT
-  - UBX payload definition - bit mask
-  - UBX payload - byte array
+  - UBX payload definition - simple bit mask
+  - UBX payload - 120 byte array for one seconds worth of 5 Hz data
 
 The [ESP32](esp32.md) and [APPro](appro.md) each have their own unique roles to play in the handling of the data.
 
+It might also be desirable to send things such as HR data from the Garmin to the ESP32.
 
 
-### Recommended UBX Payload
+
+#### Recommended UBX Payload
 
 The recommended UBX payload is 120 bytes per second, detailed in a [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing).
 
-A quick summary, lacking the full detail that an be found in the Google Sheet:
+A quick summary, lacking the full detail that can be found in the Google Sheet:
 
 | Name                             | Type | Bytes | Units |     Resolution      |
 | -------------------------------- | :--: | :---: | :---: | :-----------------: |
@@ -37,7 +40,7 @@ A quick summary, lacking the full detail that an be found in the Google Sheet:
 
 
 
-### Alternative UBX Payloads
+#### Alternative UBX Payloads
 
 Alternative payloads may be desirable, such as the inclusion of height above MSL, vertical accuracy, or heading accuracy.
 
