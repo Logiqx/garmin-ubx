@@ -32,13 +32,13 @@ Various UBX data types have been reduced in size, but still remain suitable for 
 
 
 
-#### 10 Hz / 20 Hz
+#### Higher Frequencies
 
 10 Hz data would require a 240 byte payload, which is too large for the FIT record which has a limit of 256 bytes.
 
-Two possible solutions would allow for higher rates to be logged:
+Two possible solutions would allow 10 Hz data to be logged:
 
 1. Drop some of the legacy fields which have limited use - e.g. HDOP
-2. Employ decimation to 5 Hz data - e.g. average every 2 items of 10 Hz data to produce 5 Hz data
+2. Employ decimation to produce 5 Hz data - e.g. average every 2 items in the 10 Hz data
 
 This isn't really a big issue though because the benefits of 10 Hz tend to be minimal.
