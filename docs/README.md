@@ -80,7 +80,7 @@ Some further investigations are required.
 
 The following pages discuss the technical details.
 
-- [Protocol](protocol.md) - UBX payload, extensibility, etc.
+- [Protocol](protocol.md) - UBX payload definition
 - [ESP32](esp32.md) - sending UBX payloads to the Garmin
 - [APPro](appro.md) - receiving and saving UBX payloads
 - [Analysis](analysis.md) - FIT file parsing
