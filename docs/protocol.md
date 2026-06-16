@@ -2,16 +2,13 @@
 
 ### Protocol
 
-It is envisaged that the ESP32 will send summary data to APPro (or similar) once per second.
-
-- Latitude + Longitude - 1 second average
-- Speed (SOG) + Course (COG) - 1 second average
-- sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
-- Number of satellites in use
-
 It is envisaged that the ESP32 will send UBX payloads either 5 or 10 times per second.
 
-- UBX payload - 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+- 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+
+It is envisaged that the ESP32 will also send summary payloads to APPro (or similar), once per second.
+
+- 20 byte array, but containing one second averages where applicable
 
 The [ESP32](esp32.md) and [APPro](appro.md) each have their own unique roles to play in the handling of the data.
 
@@ -45,8 +42,8 @@ These items are similar to those in the [GPY](https://github.com/prichterich/com
 Some items have been reduced in size, but are perfectly fine for speed sailing and other wind sports.
 
 - UTC time - able to count in milliseconds for 65 seconds. Standard FIT timestamps provide date + time
-- Speed - reduced to 2 bytes for a ~65 m/s limit (around 130 kt), which is plenty for wind sports
-- Course - reduced to 2 bytes for two decimal places, which should be sufficient for most purposes
+- Speed (SOG) - reduced to 2 bytes for a ~65 m/s limit (around 130 kt), which is plenty for wind sports
+- Course (COG) - reduced to 2 bytes for two decimal places, which should be sufficient for most purposes
 - Horizontal Dilution of Precision - one decimal place is fine, because hAcc and sAcc are much more useful
 - Horizontal accuracy - reduced to 2 bytes for a ~65 m limit, which is much higher than acceptable thresholds
 - Speed accuracy - reduced to 2 bytes for a ~65 m/s limit (around 130 kt), which is plenty for wind sports

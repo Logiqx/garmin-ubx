@@ -2,16 +2,13 @@
 
 ### ESP32
 
-It is envisaged that the ESP32 will send summary data to APPro (or similar) once per second.
-
-- Latitude + Longitude - 1 second average
-- Speed (SOG) + Course (COG) - 1 second average
-- sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
-- Number of satellites in use
-
 It is envisaged that the ESP32 will send UBX payloads either 5 or 10 times per second.
 
-- UBX payload - 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+- 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+
+It is envisaged that the ESP32 will also send summary payloads to APPro (or similar), once per second.
+
+- 20 byte array, but containing one second averages where applicable
 
 See the [protocol](protocol.md) page and [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing) for more details about the UBX payloads.
 
@@ -23,7 +20,7 @@ It might also be desirable to send things such as HR data from the Garmin to the
 
 The live data should use 1 second averages for SOG and COG, described in a [decimation](https://logiqx.github.io/gps-wizard/ideas/decimation/) article.
 
-sAcc and hAcc should use applicable error propagation, so they relate to the 1 second averages.
+sAcc and hAcc should use Gaussian error propagation, so they relate to the 1 second averages.
 
 The [protocol](protocol.md) page describes the recommended items for the UBX payload.
 

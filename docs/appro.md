@@ -2,16 +2,13 @@
 
 ### APPro
 
-It is envisaged that the ESP32 will send summary data to APPro (or similar) once per second.
-
-- Latitude + Longitude - 1 second average
-- Speed (SOG) + Course (COG) - 1 second average
-- sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
-- Number of satellites in use
-
 It is envisaged that the ESP32 will send UBX payloads either 5 or 10 times per second.
 
-- UBX payload - 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+- 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
+
+It is envisaged that the ESP32 will also send summary payloads to APPro (or similar), once per second.
+
+- 20 byte array, but containing one second averages where applicable
 
 See the [protocol](protocol.md) page and [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing) for more details about the UBX payloads.
 
@@ -19,11 +16,10 @@ See the [protocol](protocol.md) page and [Google Sheet](https://docs.google.com/
 
 #### Notes
 
-- Live data from the ESP32 should be used instead of values from the Garmin API.
-  - SOG and COG from the Garmin API should still be written to the FIT.
-- The UBX payloads (and the definition) simply need to be written to the FIT.
+- The UBX payloads simply need to be concatenated and written to the FIT
   - 5 or 10 Hz data will be received in multiple payloads, each of 20 bytes
-
+- Live data from the ESP32 should be used instead of values from the Garmin API
+  - SOG and COG from the Garmin API should still be written to the FIT
 
 
 
