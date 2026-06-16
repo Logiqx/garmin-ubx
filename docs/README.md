@@ -66,8 +66,8 @@ Analysis
 
 Some provisional investigations have already been undertaken.
 
-- Scott has demonstrated that BLE communication is possible between APPro and an ESP32 device.
-- Scott has confirmed the required u-blox data can be stored in Garmin FIT files; 5 Hz = 100 bytes / sec.
+- Scott Simms has demonstrated that BLE communication is possible between APPro and an ESP32 device.
+- Scott Simms has confirmed the required u-blox data can be stored in Garmin FIT files; 5 Hz = 100 bytes / sec.
 
 Some further investigations are required.
 
@@ -132,5 +132,5 @@ Further activities to prove that this concept will work reliably.
 
 - Ascertain the reliability of BLE connections
 - Ascertain the stability of Garmin timings
-- Define the BLE profile
+- Define the BLE profile(s)
 
