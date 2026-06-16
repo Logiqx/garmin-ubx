@@ -16,4 +16,4 @@ TODO - provide example code for this purpose.
 
 Since the data from the built-in GNSS receiver is also in the FIT file there may be further possibilities to verify results.
 
-The FIT file essentially contains the 1 Hz Garmin data, and 5 Hz UBX data which can be considered to be independent.
+The FIT file essentially contains the 1 Hz Garmin data, and 5 or 10 Hz UBX data which can be considered to be independent.

@@ -39,25 +39,25 @@ There are several possible applications for BLE, but one idea is to link ESP32-b
 APPro
 
 - All speeds and results displayed by APPro can be based on accurate u-blox data from the ESP32.
-- Top speeds calculated from 5 Hz data will be far more reliable, and not prone to jitter or [aliasing](https://logiqx.github.io/gps-details/general/aliasing/).
+- Top speeds calculated from 5 or 10 Hz data will be far more reliable, and not prone to jitter or [aliasing](https://logiqx.github.io/gps-details/general/aliasing/).
 - Metrics such as sAcc and hAcc can be used for filtering, thus eliminating the majority of spikes.
 
 Garmin
 
-- 5 Hz u-blox data can be recorded in the FIT file, alongside the usual session data, heart rate, etc.
-- 5 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
-- 5 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
+- 5 or 10 Hz u-blox data can be recorded in the FIT file, alongside the usual session data, heart rate, etc.
+- 5 or 10 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
+- 5 or 10 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
 
 ESP32
 
 - u-blox results can be displayed by APPro, especially useful for ESP32 devices without a screen.
-- 5 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
-- 5 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
+- 5 or 10 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
+- 5 or 10 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
 
 Analysis
 
-- FIT files containing 5 Hz u-blox data, plus the usual data from the GNSS receiver in the watch.
-- FIT files including 5 Hz u-blox accuracy estimates (e.g. sAcc and hAcc), plus satellite counts and HDOP.
+- FIT files containing 5 or 10 Hz u-blox data, plus the usual data from the GNSS receiver in the watch.
+- FIT files including 5 or 10 Hz u-blox accuracy estimates (e.g. sAcc and hAcc), plus satellite counts and HDOP.
 - FIT files containing all of the usual session details, plus fitness data such as HR, etc.
 
 
@@ -107,8 +107,8 @@ There are a number of ESP32 devices that would benefit from BLE pairing with Gar
 Some benefits for users of ESP32 devices with integrated BLE, even when they have a display:
 
 - Live results can also be displayed by APPro, providing additional functionality and feedback.
-- 5 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
-- 5 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
+- 5 or 10 Hz u-blox data can be automatically uploaded to Garmin Connect, providing free storage.
+- 5 or 10 Hz u-blox data can be automatically uploaded to GPS-Speedsurfing, Waterspeed, etc.
 
 Automatic uploads to multiple platforms (courtesy of Garmin) is expected to make life simpler for most users.
 
@@ -120,7 +120,7 @@ Garmin watches supporting CIQ 3.1 upwards should be suitable, even $30 watches f
 
 Since the data from the built-in GNSS receiver is also in the FIT file there may be further possibilities to verify results.
 
-The FIT file essentially contains the 1 Hz Garmin data, and 5 Hz UBX data which can be considered to be independent.
+The FIT file essentially contains the 1 Hz Garmin data, and 5 or 10 Hz UBX data which can be considered to be independent.
 
 It might also be desirable to send things such as HR data from the Garmin to the ESP32.
 

@@ -9,7 +9,7 @@ The BLE profile has yet to be defined, but it is envisaged that the ESP32 will s
 - sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
 - Number of satellites in use
 
-The BLE profile has yet to be defined, but it is envisaged that the ESP32 will send UBX payloads 5 times per second.
+The BLE profile has yet to be defined, but it is envisaged that the ESP32 will send UBX payloads either 5 or 10 times per second.
 
 - UBX payload - 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
 
@@ -33,11 +33,7 @@ Various UBX data types have been reduced in size, but still remain suitable for 
 
 #### Higher Frequencies
 
-10 Hz data would require a 240 byte payload, which is too large for the FIT record which has a limit of 256 bytes.
+10 Hz data would require a 200 byte array within each FIT record, which has a total limit of 256 bytes.
 
-Two possible solutions would allow 10 Hz data to be logged:
+This should be ok, since existing FIT records do not occupy 56 bytes - perhaps 49 including APPro fields?
 
-1. Drop some of the legacy fields which have limited use - e.g. HDOP
-2. Employ decimation to produce 5 Hz data - e.g. average every 2 items in the 10 Hz data
-
-This isn't really a big issue though because the benefits of 10 Hz tend to be minimal.

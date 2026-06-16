@@ -21,9 +21,9 @@ It might also be desirable to send things such as HR data from the Garmin to the
 
 #### UBX Payload
 
-The UBX payload is exactly 20 bytes and the full details can be found in a [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing).
+The UBX payload is exactly 20 bytes. It is summarised below, but further details can be found in a [Google Sheet](https://docs.google.com/spreadsheets/d/1XAQbnhaoFV_E_tIXIC6ekw-PZZEP4lom5GkxAbc-hIk/edit?usp=sharing).
 
-A quick summary, lacking the full detail that can be found in the Google Sheet:
+The order of the items has been chosen to ensure appropriate [data structure alignment](https://en.wikipedia.org/wiki/Data_structure_alignment) for the ESP32 and FIT consumer.
 
 | Name                             | Type | Bytes | Units |     Resolution      |
 | -------------------------------- | :--: | :---: | :---: | :-----------------: |
@@ -32,10 +32,10 @@ A quick summary, lacking the full detail that can be found in the Google Sheet:
 | UTC Time                         | uint |   2   |   s   | 1 x 10<sup>-3</sup> |
 | Speed over Ground (SOG)          | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
 | Course over Ground (COG)         | uint |   2   |  deg  | 1 x 10<sup>-2</sup> |
-| Satellites in Use                | uint |   1   |   -   |          -          |
-| Horizontal Dilution of Precision | uint |   1   |   -   | 1 x 10<sup>-1</sup> |
 | Horizontal Accuracy              | uint |   2   |   m   | 1 x 10<sup>-3</sup> |
 | Speed Accuracy                   | uint |   2   |  m/s  | 1 x 10<sup>-3</sup> |
+| Horizontal Dilution of Precision | uint |   1   |   -   | 1 x 10<sup>-1</sup> |
+| Satellites in Use                | uint |   1   |   -   |          -          |
 
 These items are similar to those in the [GPY](https://github.com/prichterich/compactgnss/blob/main/java/MinimalDataRecord.java) format, just replacing fix type with horizontal accuracy.
 
