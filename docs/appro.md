@@ -45,7 +45,11 @@ This should be ok, since existing FIT records do not occupy 56 bytes - perhaps 4
 
 Garmin watches write records to the FIT file once per second, but the timings of BLE events may vary slightly.
 
-To ensure that all payloads are handled correctly (e.g. live results, and FIT writer), [multiple-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) is proposed.
+To ensure that all payloads are handled correctly (e.g. live results, and FIT writer), [double-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) is proposed.
+
+- UBX payloads are appended to buffer 1, whilst the timer event reads from buffer 2 (initially empty)
+- UBX payloads are appended to buffer 2, whilst the timer event reads from buffer 1
+- ... etc
 
 The buffers might benefit from using [Application.Storage](https://developer.garmin.com/connect-iq/core-topics/persisting-data/) but other approaches may be possible.
 
