@@ -95,7 +95,7 @@ There are a number of ESP32 devices that would benefit from BLE pairing with Gar
   - [LILYGO T5 V2.3.1](https://lilygo.cc/products/t5-v2-3-1?variant=42366871699637) - BN213 or B74
     - [ESP32](https://www.espressif.com/en/products/socs/esp32) with integrated 2.4 GHz, 802.11 b/g/n Wi-Fi and Bluetooth 5 (LE) connectivity
 - [LISA GPS](http://lisawindsurfing.shop/products/lisa-watersports-gps)
-  - Perhaps the [LILYGO T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) or something similar?
+  - [LILYGO T-Display S3 AMOLED](https://lilygo.cc/products/t-display-s3-amoled?variant=43506902368437) - H712 or H713
     - [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3) with integrated 2.4 GHz, 802.11 b/g/n Wi-Fi and Bluetooth 5 (LE) connectivity
 - ... other ESP32 projects in progress
   - Some with displays, and some without displays
