@@ -2,14 +2,14 @@
 
 ### Protocol
 
-The BLE profile has yet to be defined, but it is envisaged that the ESP32 will send summary data to APPro (or similar) once per second.
+It is envisaged that the ESP32 will send summary data to APPro (or similar) once per second.
 
 - Latitude + Longitude - 1 second average
 - Speed (SOG) + Course (COG) - 1 second average
 - sAcc + hAcc - error propagation should relate to latitude + longitude + SOG
 - Number of satellites in use
 
-The BLE profile has yet to be defined, but it is envisaged that the ESP32 will send UBX payloads 5 times per second.
+It is envisaged that the ESP32 will send UBX payloads either 5 or 10 times per second.
 
 - UBX payload - 20 byte array, suitable for the hardcoded Garmin [MTU](https://github.com/Logiqx/garmin-ubx/discussions/2) size
 
