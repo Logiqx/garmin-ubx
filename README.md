@@ -1,6 +1,4 @@
-# garmin-ubx
-
-### Garmin + u-blox integration
+## Garmin + u-blox integration
 
 This project describes the integration of Garmin watches with u-blox GNSS receivers.
 
